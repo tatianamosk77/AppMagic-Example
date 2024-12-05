@@ -93,7 +93,7 @@ test('TC #5. Check if the selectorPanel can be closed by click outside', async (
 });
 
 // Проверка лимита вводимых символов в инпут выбора страны
-test('TC #5. Check a limit of letters in country input', async ({ page }) => {
+test('TC #6. Check a limit of letters in country input', async ({ page }) => {
 
   const appsPage = new AppsPage(page);
   
