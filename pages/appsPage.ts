@@ -9,6 +9,7 @@ export class AppsPage{
     noDataStatement: Locator;
     selectorPanel: Locator;
     centerOfPage: Locator;
+    clearSearchIcon: Locator;
 
     // Инициализируем объект сразу с набором локаторов через конструктор
     constructor(page){ 
@@ -18,11 +19,17 @@ export class AppsPage{
         this.noDataStatement = page.locator(`div .no-data`)
         this.selectorPanel = page.locator(`country-single-select-panel`)
         this.centerOfPage = page.locator('.am-dropdown-backdrop')
+        this.clearSearchIcon = page.locator('.g-clear-search-icon')
     }
 
    // Функция клика по селектору со страной
     async clickCountrySelector(){
         await this.geographySelector.click();
+    }
+
+    // Функция клика по иконке очистки инпута
+    async clickClearIcon(){
+        await this.clearSearchIcon.click();
     }
 
     // Функция ввода страны в инпут

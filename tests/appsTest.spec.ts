@@ -33,7 +33,7 @@ test('TC #1. Check the filled country in geography selector', async ({ page }) =
 });
 
 // Проверка на то, что при повторном нажатии на селектор после выбора страны - инпут пустой
-test('TC #2. Check that country input is cleared', async ({ page }) => {
+test('TC #2.1. Check that country input is cleared', async ({ page }) => {
   const country = 'India'
   const appsPage = new AppsPage(page);
   
@@ -43,6 +43,20 @@ test('TC #2. Check that country input is cleared', async ({ page }) => {
 
   // Кликаем снова на наш селектор с ранее выбранной страной
   await appsPage.clickCountrySelector()
+
+  // Проверка на то, что инпут пуст
+  await expect(appsPage.inputSelector).toBeEmpty()
+
+});
+
+// Проверка на то, что при клике на иконку очистки инпута - инпут пустой
+test('TC #2.2. Check that country input is cleared via icon', async ({ page }) => {
+  const country = 'India'
+  const appsPage = new AppsPage(page);
+  
+  await appsPage.clickCountrySelector()
+  await appsPage.typeCountry(country)
+  await appsPage.clearSearchIcon()
 
   // Проверка на то, что инпут пуст
   await expect(appsPage.inputSelector).toBeEmpty()
