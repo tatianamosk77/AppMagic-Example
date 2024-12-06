@@ -56,7 +56,7 @@ test('TC #2.2. Check that country input is cleared via icon', async ({ page }) =
   
   await appsPage.clickCountrySelector()
   await appsPage.typeCountry(country)
-  await appsPage.clearSearchIcon()
+  await appsPage.clickClearIcon()
 
   // Проверка на то, что инпут пуст
   await expect(appsPage.inputSelector).toBeEmpty()
